@@ -1,0 +1,47 @@
+INSERT INTO department (name)
+VALUES  ("Admin"),
+        ("Accounting"),
+        ('Marketing'),
+        ('IT'),
+        ('Sales'),
+        ('Customer Service'),
+        ('Purchasing'),
+        ('Warehouse');
+
+INSERT INTO role (title, salary, department_id)
+VALUES  ('Boss', 640000, 1),
+        ('Accounting Manager', 31000, 2),
+        ('Marketing Manager', 31000, 3),
+        ('IT Manager', 31000, 4),
+        ('Sales Manager', 31000, 5),
+        ('Customer Service Manager', 31000, 6),
+        ('Purchasing Manager', 31000, 7),
+        ('Warehouse Manager', 31000, 8),
+        ('HR', 30000, 1),
+        ('Accounts Payable', 30000, 2),
+        ('Accounts Receiving', 30000, 2),
+        ('Marketer', 30000, 3),
+        ('IT', 30000, 4),
+        ('Sales', 30000, 5),
+        ('CSR', 30000, 6),
+        ('Purchasing', 30000, 7),
+        ('Warehouse', 30000, 8);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES  ('Leland', 'Johnson', 1),
+        ('John', 'Johnson', 2, 1),
+        ('Jack', 'Johnson', 3, 1),
+        ('George', 'Johnson', 4, 1),
+        ('Jim', 'Johnson', 5, 1),
+        ('Jared', 'Johnson', 6, 1),
+        ('Jenny', 'Johnson', 7, 1),
+        ('Janine', "Johnson", 8, 1),
+        ('Les', "Moore", 9, 2),
+        ('Lenny', "Leonard", 10, 2),
+        ('Lars', 'Schmooby', 11, 3),
+        ('Leroy', "Jenkins", 12, 4),
+        ('Lupe', "Laredo", 13, 5),
+        ('Lex', "Luther", 14, 6),
+        ('Lane', 'Stayley', 15, 7),
+        ('Peter', "Smith", 16, 8), 
+        ('Luis', "L'amour", 17, 9);
