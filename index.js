@@ -1,4 +1,4 @@
-const mainMenuAsync = require("./helpers/mainMenu");
+const { mainMenu } = require("./helpers/mainMenu");
 
 // get the client
 // const mysql = require("mysql2");
@@ -11,16 +11,4 @@ const mainMenuAsync = require("./helpers/mainMenu");
 //   password: process.env.PASSWORD,
 // });
 
-async function callMainMenu() {
-  try {
-    await mainMenuAsync().then((main) => {
-      console.log(main);
-    });
-  } catch {
-    if (err) {
-      console.log(err);
-    }
-  }
-}
-
-callMainMenu();
+mainMenu();

@@ -1,5 +1,4 @@
 const inquirer = require("inquirer");
-const util = require("util");
 
 const questions = [
   {
@@ -18,8 +17,6 @@ const questions = [
   },
 ];
 
-const mainMenuAsync = util.promisify(mainMenu);
-
 function mainMenu() {
   inquirer
     .prompt(questions)
@@ -32,4 +29,4 @@ function mainMenu() {
     });
 }
 
-module.exports = mainMenuAsync();
+module.exports = { mainMenu };
