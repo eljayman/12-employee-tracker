@@ -28,7 +28,7 @@ VALUES  ('Boss', 640000, 1),
         ('Warehouse', 30000, 8);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES  ('Leland', 'Johnson', 1),
+VALUES  ('Leland', 'Johnson', 1, null),
         ('John', 'Johnson', 2, 1),
         ('Jack', 'Johnson', 3, 1),
         ('George', 'Johnson', 4, 1),
