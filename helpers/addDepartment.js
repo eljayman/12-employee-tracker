@@ -3,8 +3,8 @@ const inquirer = require("inquirer");
 const questions = [
   {
     type: "input",
-    name: "addedDepartment",
-    message: "What is the name of the department to add?",
+    name: "firstName",
+    message: "What is the first name of the new employee?",
   },
 ];
 
