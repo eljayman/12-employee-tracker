@@ -1,4 +1,6 @@
 const mysql = require("mysql2");
+// const { mainMenu } = require("./mainMenu");
+
 require("dotenv").config();
 
 const db = mysql.createConnection({
@@ -9,12 +11,13 @@ const db = mysql.createConnection({
 
 class Queries {
   departmentsQuery() {
-    db.query(`SELECT name as Department FROM department`, (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-      console.table(result);
-    });
+    db.promise()
+      .query(`SELECT name as Department FROM department`)
+      .then(([rows, fields]) => {
+        console.table(rows);
+      })
+      .catch(console.log)
+      .then(() => db.end());
   }
   rolesQuery() {
     db.query(
