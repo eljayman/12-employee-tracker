@@ -34,9 +34,13 @@ function mainMenu() {
     });
 }
 
-async function menuHelper(choice) {
+function menuHelper(choice) {
   if (choice === "View all departments") {
     queries.departmentsQuery();
+
+    return mainMenu();
+  } else {
+    return mainMenu();
   }
   // if (choice === "View all roles") {
   //   queries.rolesQuery();
