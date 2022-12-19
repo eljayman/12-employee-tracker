@@ -24,9 +24,10 @@ function mainMenu() {
     .prompt(questions)
     .then(({ main }) => {
       if (main === "Quit") {
+        console.log("Goodbye");
         process.exit();
       } else {
-        menuHelper(main);
+        return menuHelper(main);
       }
     })
     .catch((error) => {
@@ -37,17 +38,15 @@ function mainMenu() {
 function menuHelper(choice) {
   if (choice === "View all departments") {
     queries.departmentsQuery();
-
-    return mainMenu();
-  } else {
-    return mainMenu();
   }
+
   // if (choice === "View all roles") {
   //   queries.rolesQuery();
   // }
   // if (choice === "View all employees") {
   //   queries.employeesQuery();
   // }
+  mainMenu();
 }
 
 module.exports = { mainMenu };
