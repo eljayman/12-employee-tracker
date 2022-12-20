@@ -190,34 +190,53 @@ function addEmployee() {
 }
 
 function employeeUpdate(employeeSelect) {
-  console.log(employeeSelect);
+  inquirer
+    .prompt([
+      {
+        type: "number",
+        name: "newEmpRole",
+        message: "What is the employee's new role ID?",
+      },
+    ])
+    .then(({ newEmpRole }) => {
+      db.promise()
+        .query(`UPDATE employee SET role_id = ? WHERE id= ?`, [
+          newEmpRole,
+          employeeSelect,
+        ])
+        .then(() => {
+          mainMenu();
+        });
+    });
 }
 function updateEmployee() {
   db.promise()
     .query(
-      `SELECT CONCAT(first_name, " ", last_name) AS employee from employee`
+      `SELECT id, CONCAT(first_name, " ", last_name) AS employee from employee`
     )
-    .then(([rows, fields]) => {
-      console.log([rows]);
-      const employeeNames = [...[rows]];
-      console.log(employeeNames);
-      //   const employeeSelections = [
-      //     {
-      //       type: "list",
-      //       name: "employeeSelect",
-      //       message: "Which would you like to update?",
-      //       choices: ["name", `${employeeNames[i]}`],
-      //     },
-      //   ];
+    .then(([rows]) => {
+      const employeeChoices = rows.map((row) => {
+        return { value: row.id, name: row.employee };
+      });
 
-      //   inquirer
-      //     .prompt(employeeSelections)
-      //     .then(({ employeeSelect }) => {
-      //       return employeeUpdate(employeeSelect);
-      //     })
-      //     .catch((error) => {
-      //       console.log(error);
-      //     });
+      //   console.log(employeeNames);
+      const employeeSelections = [
+        {
+          type: "list",
+          name: "employeeSelect",
+          message: "Which would you like to update?",
+          choices: employeeChoices,
+        },
+      ];
+
+      inquirer
+        .prompt(employeeSelections)
+        .then(({ employeeSelect }) => {
+          return employeeUpdate(employeeSelect);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
 }
 
