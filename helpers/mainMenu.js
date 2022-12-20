@@ -38,6 +38,7 @@ function mainMenu() {
 function menuHelper(choice) {
   if (choice === "View all departments") {
     queries.departmentsQuery();
+
   }
 
   // if (choice === "View all roles") {
@@ -46,7 +47,6 @@ function menuHelper(choice) {
   // if (choice === "View all employees") {
   //   queries.employeesQuery();
   // }
-  mainMenu();
 }
 
 module.exports = { mainMenu };

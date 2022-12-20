@@ -1,5 +1,4 @@
 const mysql = require("mysql2");
-
 require("dotenv").config();
 
 const db = mysql.createConnection({
@@ -15,8 +14,7 @@ class Queries {
       .then(([rows, fields]) => {
         console.table(rows);
       })
-      .catch(console.log)
-      .then(() => db.end());
+      .catch(console.log);
   }
   rolesQuery() {
     db.query(
